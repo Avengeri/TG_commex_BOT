@@ -56,6 +56,7 @@ func main() {
 	port := os.Getenv("SRV_PORT")
 
 	localServer := fmt.Sprintf("the handlergrpc is running on: http://localhost:%s/", port)
+	localServer = fmt.Sprintf("the handlergrpc is running on: http://localhost:%s/", port)
 	fmt.Println(localServer)
 
 	localPingPong := fmt.Sprintf("ping pong handlergrpc: http://localhost:%s/ping", port)
