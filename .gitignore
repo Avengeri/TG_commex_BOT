@@ -1,0 +1,17 @@
+.next
+.idea
+.bin
+.env
+/dist
+/internal/handler/docs
+/gen
+/logs
+.vercel
+debug.log
+/.cache
+.PID
+
+.vscode
+
+node_modules/
+/.gradle/

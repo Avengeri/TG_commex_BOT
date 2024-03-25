@@ -1,0 +1,58 @@
+version: "3.9"
+
+
+services:
+  db:
+    image: ${DB_IMAGE}:${DB_VERSION}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    container_name: ${DB_HOST}
+    networks:
+      network:
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    restart: unless-stopped
+  up:
+    image: migrate/migrate
+    container_name: up
+    networks:
+      - network
+    volumes:
+      - ./migrations:/migrations
+    command: [ "-path", "/migrations", "-database",  "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}?sslmode=disable", "up", "1" ]
+    depends_on:
+      - db
+  down:
+    image: migrate/migrate
+    container_name: down
+    networks:
+      - network
+    volumes:
+      - ./migrations:/migrations
+    command: [ "-path", "/migrations", "-database",  "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}?sslmode=disable", "down", "-all" ]
+    depends_on:
+      - db
+  down1:
+    image: migrate/migrate
+    container_name: down1
+    networks:
+      - network
+    volumes:
+      - ./migrations:/migrations
+    command: [ "-path", "/migrations", "-database",  "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}?sslmode=disable", "down", "1" ]
+    depends_on:
+      - db
+
+networks:
+  network:
+volumes:
+  pgdata:
+
+
+
+
+

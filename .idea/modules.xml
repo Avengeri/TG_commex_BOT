@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/TG_commex_BOT.iml" filepath="$PROJECT_DIR$/.idea/TG_commex_BOT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tgbot_k0natbl4_info_novosti/.idea/tgbot_k0natbl4_info_novosti.iml" filepath="$PROJECT_DIR$/../tgbot_k0natbl4_info_novosti/.idea/tgbot_k0natbl4_info_novosti.iml" />
+    </modules>
+  </component>
+</project>
