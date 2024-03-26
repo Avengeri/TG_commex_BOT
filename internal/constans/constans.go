@@ -20,12 +20,16 @@ const (
 	EMOJI_NEWS_SERIAL        = "\U0001F3A5"   // ◀
 	EMOJI_NEWS_ANIMALS       = "\U0001F432"   // ◀
 
-	BUTTON_REPLY_TEXT_AUTORIZE = EMOJI_ABOUT_ME + " " + "Авторизоваться"
-	BUTTON_REPLY_TEXT_LOGIN    = EMOJI_WOW + " " + "Зарегистрироваться"
+	BUTTON_REPLY_TEXT_AUTHORIZE    = "Авторизоваться"
+	BUTTON_REPLY_TEXT_REGISTER     = "Зарегистрироваться"
+	BUTTON_REPLY_TEXT_INFO         = "INFO"
+	BUTTON_REPLY_TEXT_PRICE_5_MIN  = "Показать топ 5 активных валют за последние 5 минут"
+	BUTTON_REPLY_TEXT_PRICE_1_HOUR = "Показать топ 5 активных валют за последний час"
+	BUTTON_REPLY_TEXT_PRICE_1_DAY  = "Показать топ 5 активных валют за последний день"
 
-	BUTTON_INLINE_TEXT_ACCOUNT_MANAGEMENT_SHOW_MONEY = EMOJI_COIN + " " + "Показать баланс"
-	BUTTON_INLINE_TEXT_ACCOUNT_MANAGEMENT_BUY_MONEY  = EMOJI_COIN + " " + "Пополнить баланс +100"
+	BUTTON_INLINE_TEXT_AUTORIZE = EMOJI_COIN + " " + "Показать баланс"
+	BUTTON_INLINE_TEXT_Login    = EMOJI_COIN + " " + "Пополнить баланс +100"
 
-	BUTTON_INLINE_CODE_ALLOW_GEOLOCATION             = "allow_geolocation"
-	BUTTON_INLINE_CODE_ACCOUNT_MANAGEMENT_SHOW_MONEY = "show_money"
+	BUTTON_INLINE_CODE_AUTHORIZE = "authorize"
+	BUTTON_INLINE_CODE_REGISTER  = "register"
 )

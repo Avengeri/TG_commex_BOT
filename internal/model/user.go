@@ -6,9 +6,10 @@ import (
 )
 
 type User struct {
-	UserName string
-	Id       int64
-	ChatId   int64
+	Id           int64
+	UserName     string
+	PasswordHash string
+	ChatId       int64
 }
 
 func UserUpdate(update *tgbotapi.Update) *User {

@@ -2,7 +2,10 @@ package main
 
 import (
 	"TG_commex_BOT/internal/handler"
+	"TG_commex_BOT/internal/model"
+	"TG_commex_BOT/internal/repository"
 	"TG_commex_BOT/internal/repository/postgres"
+	service2 "TG_commex_BOT/internal/service"
 	"fmt"
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
 	"github.com/joho/godotenv"
@@ -33,6 +36,10 @@ func main() {
 	}
 	fmt.Println(ok)
 
+	repo := repository.NewStorageUserPostgres(db)
+	service := service2.NewUserService(repo)
+	fmt.Println(service)
+
 	bot, err := tgbotapi.NewBotAPI("7151876669:AAHj9OA8TSMRYvIWTqS44en-m3sttRSuhSY")
 	if err != nil {
 		log.Fatalf("Connection to BOT API failed: %s", err.Error())
@@ -48,13 +55,15 @@ func main() {
 	if err != nil {
 		log.Fatalf("Could not get updates from chan: %s", err.Error())
 	}
+
 	for update := range updates {
 		if update.Message != nil && !update.Message.IsCommand() {
-			handler.HandleMessage(bot, update.Message)
+			user := model.UserUpdate(&update)
+			handler.HandleMessage(bot, user, &update, service)
 		} else if update.CallbackQuery != nil {
-			handler.HandleCallbackQuery(bot, update.CallbackQuery)
+			handler.HandleCallbackQuery(bot, &update, service)
 		} else if update.Message.IsCommand() {
-			handler.HandleCommands(bot, update.Message, &update)
+			handler.HandleCommands(bot, &update)
 		}
 	}
 }

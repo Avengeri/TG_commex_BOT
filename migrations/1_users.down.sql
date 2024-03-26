@@ -1,0 +1,2 @@
+DROP TABLE IF EXISTS t_users_todo;
+DROP TABLE IF EXISTS t_users;
